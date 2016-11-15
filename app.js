@@ -22,15 +22,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session(sessionOptions));
-
 app.use(passport.initialize());
 app.use(passport.session());
 
-//make req.user avaliable in every context
-app.use(function(req, res, next){
-  res.locals.user = req.user; 
-  next();
-});
+// //make req.user avaliable in every context
+// app.use(function(req, res, next){
+//   res.locals.user = req.user; 
+//   next();
+// });
 
 var routes = require('./routes/index');
 app.use('/', routes);
@@ -64,7 +63,9 @@ app.use(function(err, req, res, next) {
 });
 
 
+
 module.exports = app;
 
-
-
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!')
+})
