@@ -10,24 +10,46 @@
 	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 	<!--load my style sheet-->
 	<link rel='stylesheet' href='/stylesheets/style.css' />
+
+	<!-- material -->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-cyan.min.css">
+	<script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
   </head>
   <body>
-  	<!-- Nav -->
-	<!-- <nav id="nav">
-		<ul class="nav-bar">
+  	<nav id="nav">
+		<div class="logo"> 
+			What Sup Doc? 
+		</div>
+		<!-- Right aligned menu below button -->
+		<div class="menu-button"> 
+			<button id="demo-menu-lower-right"
+			        class="mdl-button mdl-js-button mdl-button--icon">
+			  <i class="material-icons">more_vert</i>
+			</button>
 
-	    </ul>
-	</nav> -->
+			<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+			    for="demo-menu-lower-right">
+			  <li class="mdl-menu__item">Some Action</li>
+			  <li class="mdl-menu__item">Another Action</li>
+			  <li disabled class="mdl-menu__item">Disabled Action</li>
+			  <li class="mdl-menu__item">Yet Another Action</li>
+			</ul>
+		</div>
+	</nav>
   	<div id = "main-container">
-	  	<div id = "innter-container"> 
+	  	<div id = "inner-container"> 
 	  		<h1 class="title"> WhatsUpDoc? </h1>
-		 	<h3 class="description">
+		 	<div class="description">
 		  		Our platform provides an easy way for doctors to follow up with their pateints on the effectiveness of the prescribed medication and treatment. 
-		    </h3> 
-		  	<h3 class="description">  
-		  		Doctors, sign up with us today and stay connected with your patients after their visits!
-		  	</h3> 
+		    </div> 
+		  	<div class="description">  
+		  		Doctors, register with us today and stay connected with your patients after their visits!
+		  	</div> 
 			<a href="/register"> <button class="button">register</button> </a>
+			<div class="disclaimer">
+		  		If you are not a doctor but you are interested in using our services, ask your doctor to register with us!
+		  	</div> 
   		</div>
   	</div> 
   </body>

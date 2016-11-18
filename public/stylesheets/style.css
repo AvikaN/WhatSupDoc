@@ -3,37 +3,51 @@
 
 
 body{
-	background-color: #fafafa;
-	font-size: 16px;
-    font-family: 'Open Sans', sans-serif;
+   background-color: #fafafa;
+   font-size: 16px;
+   font-family: 'Open Sans', sans-serif;
 }
 
 .title{
-	font-size: 5em;
-	color: #3F51B5;
-    text-align: center;
-    font-family: 'Raleway', sans-serif;
+   color: #3F51B5;
+   text-align: center;
+   font-family: 'Raleway', sans-serif;
 }
 
+.logo{
+   text-align: left;
+   color: #E8EAF6;
+   padding-top: 0.5%;
+   width: 20%;
+   float: left;
+   font-family: 'Raleway', sans-serif;
+   margin-left: 1%;
+}
 
 #main-container{
-	display: table;
-	position: absolute;
-	height: 100%;
-	width: 50%;
-	margin-left: 25%; 
+   display: table;
+   position: absolute;
+   height: 100%;
+   width: 50%;
+   margin-left: 25%; 
 }
 
-
-#innter-container{
+#inner-container{
 	display: table-cell;
 	vertical-align: middle;
 	text-align: center;
 }
 
 .description{
-	font-size: 1.1em;
+	padding: 0.5em;
+	font-size: 1.2em;
 	color: #696969;
+}
+
+.disclaimer{
+	font-size: 1.2em;
+	margin-left: 15%;
+	margin-right: 15%;
 }
 
 .button {
@@ -107,4 +121,22 @@ body{
   			background:#6666ff;
   			width:100%;
   		}
+
+
+#nav {
+	background-color: #5C6BC0;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+    color: #ffffff;
+	cursor: default;
+}
+
+.menu-button{
+  display: float;
+  margin-left: 97%;
+}
+
 
