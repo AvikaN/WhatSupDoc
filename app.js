@@ -1,3 +1,5 @@
+require('./db.js');
+
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -6,14 +8,14 @@ var passport = require('passport');
 
 var app = express();
 
-app.set('views', path.join(__dirname, 'views')); 
+app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 //set up session
 var session = require('express-session');
 var sessionOptions = {
-  secret: 'secret cookie thang (store this elsewhwere!)', 
-  resave: true, 
+  secret: 'secret cookie thang (store this elsewhwere!)',
+  resave: true,
   saveUninitialized: true
 };
 
@@ -25,21 +27,15 @@ app.use(session(sessionOptions));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// //make req.user avaliable in every context
-// app.use(function(req, res, next){
-//   res.locals.user = req.user; 
-//   next();
-// });
+// make req.user avaliable in every context
+app.use(function(req, res, next){
+    res.locals.user = req.user;
+    next();
+});
 
 var routes = require('./routes/index');
 app.use('/', routes);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
-});
 
 // will print stacktrace
 if (app.get('env') === 'development') {

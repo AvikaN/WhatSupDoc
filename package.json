@@ -24,7 +24,10 @@
     "handlebars": "^4.0.6",
     "hbs": "^4.0.1",
     "mongoose": "^4.6.7",
+    "mongoose-url-slugs": "^0.2.1",
     "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0",
     "path": "^0.12.7"
   }
 }
