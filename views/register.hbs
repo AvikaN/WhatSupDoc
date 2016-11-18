@@ -9,7 +9,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Fira+Mono' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 	<!--load my style sheet-->
-	<link rel='stylesheet' href='/stylesheets/style.css' />
+	<link rel='stylesheet' href='/stylesheets/style-register.css'/>
 
 	<!-- material -->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -25,14 +25,9 @@
 	    </ul>
 	</nav> -->
   	<div id = "main-container">
-	  	<div id = "innter-container"> 
+	  	<div id = "form-container"> 
+	  		<h3 class="title"> Register </h3>
 	  		<form method="post" action="/register" autocomplete="off">
-				<!-- <label>First name - </label><input name="firstName"></input><br><br>
-				<label>Last name - </label><input name="lastName"></input><br><br>
-				<label>Email - </label><input name="email"></input><br><br>
-				<label>Password - </label><input type="password" name="password"></input><br><br>
-				<input type="submit"></input> -->
-
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 				  <input class="mdl-textfield__input" type="text" id="fname" name="firstName">
 				  <label class="mdl-textfield__label" for="fname">First Name</label>
@@ -53,7 +48,7 @@
 				  <label class="mdl-textfield__label" for="password">Password</label>
 				</div>
 				<div></div>
-				<input type="submit"></input> 
+				<input class="button" type="submit"></input> 
 			</form>
   		</div>
   	</div> 
