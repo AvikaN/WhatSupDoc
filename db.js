@@ -4,17 +4,58 @@ var passportLocalMongoose = require('passport-local-mongoose');
 
 var ObjectId = mongoose.Schema.Types.ObjectId;
 
+var Medication = new mongoose.Schema({
+  name: String,
+  dosage: Number,
+  frequency: String, // dropdown (day, week, ...)
+});
+
+var Question = new mongoose.Schema({
+  question: String,
+  responseType: String, // dropdown (number, text, yes/no, ...)
+});
+
+var Survey = new mongoose.Schema({
+  id: String,
+  questions: [Question],
+});
+
+var Response = new mongoose.Schema({
+  surveyId: Number,
+  responses: [String],
+});
+
+var Patient = new mongoose.Schema ({
+    email: {type : String, unique:true, dropDups:true},
+    firstName: String,
+    lastName: String,
+    medications: [Medication],
+    responses: [Response],
+    condition: String, //what the patient is being treated for
+    age: Number,
+    weight: Number,
+    height: Number,
+    gender: String, // dropdown
+    race: String, // dropdown
+});
+
+// User is the doctor
 var User = new mongoose.Schema({
     email: {type : String, unique:true, dropDups:true},
     firstName: String,
     lastName: String,
-    //messages:[Message], this is an example of linking a list of objects
-	//colorScheme:{type: ObjectId, ref: 'ColorScheme'}, this is an example of linking to one object via ID
+    hospital: String,
+    doctorType: String,
+    patients: [Patient]
 });
 
+mongoose.model('Medication', Medication);
+mongoose.model('Question', Question);
+mongoose.model('Survey', Survey);
+mongoose.model('Response', Response);
+mongoose.model('Patient', Patient);
+
 User.plugin(passportLocalMongoose);
-
-
 mongoose.model('User', User);
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/doctordb');
