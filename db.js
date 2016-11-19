@@ -10,6 +10,7 @@ var Medication = new mongoose.Schema({
   frequency: String, // dropdown (day, week, ...)
 });
 
+// TODO do we need this vvvv
 var Question = new mongoose.Schema({
   question: String,
   responseType: String, // dropdown (number, text, yes/no, ...)
@@ -17,7 +18,7 @@ var Question = new mongoose.Schema({
 
 var Survey = new mongoose.Schema({
   id: String,
-  questions: [Question],
+  questions: [String],
 });
 
 var Response = new mongoose.Schema({
