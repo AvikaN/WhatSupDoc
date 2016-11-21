@@ -1,4 +1,4 @@
-var mongoose = require('mongoose'), URLSlugs = require('mongoose-url-slugs');
+uvar mongoose = require('mongoose'), URLSlugs = require('mongoose-url-slugs');
 
 var passportLocalMongoose = require('passport-local-mongoose');
 

@@ -23,14 +23,27 @@ body{
    margin-left: 1%;
 }
 
+.error-message{
+   color: #3949AB;
+}
+
 
 #main-container{
 	display: table;
 	position: absolute;
-	height: 50%;
 	width: 33%;
-  margin-top: 10%;
+  height: 50%:;
+  margin-top: 7%;
 	margin-left: 33.33%; 
+}
+
+#login-container{
+  display: table;
+  position: absolute;
+  width: 33%;
+  height: 50%:;
+  margin-top: 15%;
+  margin-left: 33.33%; 
 }
 
 
@@ -89,5 +102,8 @@ body{
   display: float;
   margin-left: 97%;
 }
+
+
+
 
 

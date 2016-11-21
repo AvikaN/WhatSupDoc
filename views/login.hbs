@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Register </title>
+    <title> Login </title>
    
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 
@@ -38,30 +38,16 @@
 			</ul>
 		</div>
 	</nav>
-  	<div id = "main-container">
+  	<div id = "login-container">
 	  	<div id = "form-container"> 
-	  		<h3 class="title"> Register </h3>
-	  		<form method="post" action="/register" autocomplete="off">
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				  <input class="mdl-textfield__input" type="text" id="fname" name="firstName">
-				  <label class="mdl-textfield__label" for="fname">First Name</label>
-				</div>
-				<div></div>
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				  <input class="mdl-textfield__input" type="text" id="lname" name="lastName">
-				  <label class="mdl-textfield__label" for="lname">Last Name</label>
-				</div>
-				<div></div>
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				  <input class="mdl-textfield__input" id="hospital" name="hospital">
-				  <label class="mdl-textfield__label" for="hospital">Hospital</label>
-				</div>
-				<div></div>
-				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-				  <input class="mdl-textfield__input" id="speciality" name="speciality">
-				  <label class="mdl-textfield__label" for="speciality">Speciality</label>
-				</div>
-				<div></div>
+			 {{#if register}}
+				<div class = "error-message"> <p> User already exists, try logging in! </p> </div> 
+			{{/if}}
+			{{#if unsuccesful}}
+				<div class = "error-message"> <p> Sorry, we can't find an account with this email address. Please try again or create a new account. <p> </div> 
+			{{/if}}
+	  		<h3 class="title"> Login </h3>
+	  		<form method="post" action="/login">
 				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
 				  <input class="mdl-textfield__input" type="text" id="email" name="email">
 				  <label class="mdl-textfield__label" for="email">Email</label>
@@ -71,7 +57,8 @@
 				  <input class="mdl-textfield__input" type="password" id="password" name="password">
 				  <label class="mdl-textfield__label" for="password">Password</label>
 				</div>
-				<input class="button" type="submit"></input> 
+				<div></div>
+				<input class="button" type="submit" value="Login"></input> 
 			</form>
   		</div>
   	</div> 

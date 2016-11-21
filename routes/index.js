@@ -1,18 +1,33 @@
-require( '../db' );
 var express = require('express'),
 	router = express.Router(),
 	passport = require('passport'),
-	mongoose = require('mongoose');
+	mongoose = require('mongoose'), 
+  User = mongoose.model('User');
 
-var User = mongoose.model('User');
-
-/* GET home page. */
 router.get('/', function(req, res, next) {
       res.render('index');
 });
 
+router.get('/login', function(req, res, next){
+	res.render('login');
+});
+
+router.post('/login', function(req, res, next){
+    	passport.authenticate('local', function(err, user){ 
+       		if(user){
+       			req.logIn(user, function(err){
+       				res.redirect('/dashboard');
+       			});
+       		}
+       		else{
+            res.render('error')
+       			//res.render('login', {unsuccesful: true});
+       		}
+       	})(req, res, next);
+});
+
 router.get('/register', function(req, res, next){
-	res.render('register');
+  res.render('register');
 });
 
 router.post('/register', function(req, res, next){
@@ -21,16 +36,26 @@ router.post('/register', function(req, res, next){
                 email: req.body.email,
                 firstName: req.body.firstName,
                 lastName: req.body.lastName
+
             }), req.body.password, function(err, user) {
                 if (err) {
-                    res.send("an error occured");
+                	if(err.name === "UserExistsError"){
+                		res.render('login', {register:true});
+                	}
+                  else{
+                    res.render("error, couldn't register");
+                  }
                 } else {
                     passport.authenticate('local')(req, res, function() {
-                        res.send('new user was created, check mongo console to see if the new user was created');
+                        res.render('successfuly registered');
 					});
                 }
 			});
 
 });
+
+// router.get('/dashboard', function(req,res,next){
+//     res.render('dashboard');
+// });
 
 module.exports = router;
